@@ -21,27 +21,30 @@
  * Autor: Antonio-M. Corbi Bellot
  * Email: acorbi@dlsi.ua.es
  */
-
+#include <iostream>
+#include <fstream>
 #include "modeloRegistro.h"
+#include "Registro.h"
+
+using namespace std;
 
 /*
  * Constructor por defecto
  */
-ModeloRegistro::ModeloRegistro(const string &n)
+ModeloRegistro::ModeloRegistro()
 {
-  nombre = n;
+  
 }
-/*tasks: Clase registro
-anyadirRegistro(parametros de registro) -> añade al arraylist(como en vista) de registros
-procesarRegistro() -> separamos en parámetros y creamos el registro. con anyadirRegistro
-*/
+
 /*
  * Constructor de copia
  */
 ModeloRegistro::ModeloRegistro(const ModeloRegistro &un_modeloRegistro)
 {
-  su_nombre = un_modeloRegistro.su_nombre;
-  su_edad = un_modeloRegistro.su_edad;
+  if (this != &un_modeloRegistro) {
+    lr.erase(lr.begin(), lr.end());
+    lr = un_modeloRegistro.lr;
+  }
 }
 
 
@@ -50,7 +53,7 @@ ModeloRegistro::ModeloRegistro(const ModeloRegistro &un_modeloRegistro)
  */
 ModeloRegistro::~ModeloRegistro()
 {
-
+	lr.erase(lr.begin(), lr.end());
 }
 
 /*
@@ -58,24 +61,29 @@ ModeloRegistro::~ModeloRegistro()
  */
 ModeloRegistro & ModeloRegistro::operator =(const ModeloRegistro &un_modeloRegistro)
 {
-  if (this != &un_modeloRegistro) {
-     nombre = un_modeloRegistro.nombre;
-     edad = un_modeloRegistro.edad;
+   if (this != &un_modeloRegistro) {
+    lr.erase(lr.begin(), lr.end());
+    lr = un_modeloRegistro.lr;
   }
   return *this;
 }
 
-void procesarRegistro(string[] lineas)
+bool EsEspacio(char c){
+	return (c==' ');
+}
+
+void ModeloRegistro::procesarRegistro(string *lineas)
 {
 	string resul;
 
-	Registro reg = new Registro();
+	Registro reg;
 	for(int i=0; i<6; i++)
 	{
+		reg = Registro();
 		string linea=lineas[i];
 		bool encon=false;
 		resul="";
-		for(int j=0; j<linea.length; j++)
+		for(int j=0; j<linea.length(); j++)
 		{
 			if(linea[j]=='\n' || linea[j]=='\r')
 			{
@@ -85,39 +93,44 @@ void procesarRegistro(string[] lineas)
 			{
 				encon=true;
 			}
-			if(encon && (!EsEspacio(linea[j]) || resul.length>0))
+			if(encon && (!EsEspacio(linea[j]) || resul.length()>0))
 			{
 				resul+=linea[j];
 			}
 		}
 
-		switch(i):
+		switch(i){
 			case 0: reg.setNombre(resul);
 				break;
 			case 1: reg.setDireccion(resul);
 				break;
 			case 2: reg.setPoblacion(resul);
 				break;
-			case 3: reg.setCPostal(resul);
+			case 3: reg.setPostal(resul);
 				break;
 			case 4: reg.setTelefono(resul);
 				break;
-			case 5: reg.setEmail(resul);
+			case 5: reg.setMail(resul);
 				break;
+		}
+		anyadirRegistro(&reg);
+
 	}
 }
 
-void ModeloRegistro::LeerFichero(String nombreFichero)
+bool ModeloRegistro::LeerFichero(char* nombreFichero)
 {
 	ifstream fi;
-	fi.open(nombreFichero,ios::in);
-	string[] lineas = string[;
+	fi.open(nombreFichero ,ios::in);
+	string *lineas = new string[6];
+	string linea="";
 	int cont = 0;
+
 	if (fi.is_open())
 	{
 		getline(fi, linea);
 
-		while(!fi.eof() && !cerrar)//lee linea a linea
+		while(!fi.eof())//lee linea a linea
 		{	
 			lineas[cont]=linea;	
 			
@@ -131,13 +144,24 @@ void ModeloRegistro::LeerFichero(String nombreFichero)
 			cont++;
 		}
 		fi.close();
+		return true;
 	}
 	else
 	{
-		cout<<"Error al abrir el fichero "<<nomFich<<endl;
+		cout<<"Error al abrir el fichero "<<nombreFichero<<endl;
+		return false;
 	}
 
 }
 
+void ModeloRegistro::Imprimir()
+{
+  list<Registro*>::iterator t;
+
+  for(t = lr.begin(); t != lr.end(); t++){
+      cout<<(*t)->getTelefono();
+  }
+
+}
 
 

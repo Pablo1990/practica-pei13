@@ -22,6 +22,7 @@
 #include <string>
 #include "modelo.h"
 
+class Registro;
 using namespace std;
 
 /*
@@ -38,6 +39,7 @@ using namespace std;
  */
 class ModeloRegistro : public Modelo
 {
+  friend class Registro;
   // Parte publica
 public:
 
@@ -46,7 +48,7 @@ public:
    * \param n El nombre de la persona.
    * \param e La edad de la persona.
    */
-  ModeloRegistro(const string &n, int e );
+  ModeloRegistro();
   //! Constructor de copia
   ModeloRegistro(const ModeloRegistro &un_modeloRegistro);
 
@@ -56,26 +58,17 @@ public:
   //! Asignacion
   ModeloRegistro & operator =(const ModeloRegistro &un_modeloRegistro);
 
-  /*
-   * Métodos Leer/Poner
-   */
+  void procesarRegistro(string[]);
 
-  //! Devuelve el nombre de una persona.
-  string getNombre() { return nombre; }
-  //! Pone el nombre a una persona.
-  void setNombre(const string &nombre) { nombre = nombre; }
+  bool LeerFichero(char*);
 
+  void Imprimir();
 
   // Parte protegida
 protected:
   //! Nombre de la persona.
-  string nombre;
-	string direccion;
-	string poblacion;
-	string cpostal;
-	string telefono;
-	string email;
-
+ list<Registro*> lr;
+ void anyadirRegistro(Registro* r) { lr.push_back(r); }
   // Parte privada
 private:
 
