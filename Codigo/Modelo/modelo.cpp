@@ -24,7 +24,7 @@
 
 #include <iostream>
 #include "modelo.h"
-#include "vista.h"
+//#include "vista.h"
 
 using namespace std;
 
@@ -58,15 +58,15 @@ Modelo::~Modelo()
  */
 Modelo & Modelo::operator =(const Modelo& un_modelo)
 {
-  if (this != &un_modelo) {
+  /*if (this != &un_modelo) {
     lv.erase(lv.begin(), lv.end());
     lv = un_modelo.lv;
-  }
+  }*/
 }
 
 /*
  * actualizar_vistas
- */
+ 
 void Modelo::actualizar_vistas(Vista* v)
 {
   list<Vista*>::iterator t;
@@ -76,4 +76,4 @@ void Modelo::actualizar_vistas(Vista* v)
       (*t)->actualizar();
       cout << "Actualizo " << *t << endl;
     } else cout << "No actualizo " << *t << endl;
-}
+}*/

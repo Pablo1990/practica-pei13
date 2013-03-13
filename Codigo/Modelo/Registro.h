@@ -17,7 +17,8 @@ using namespace std;
 class Registro {
 public:
 	Registro();
-	virtual ~Registro();
+	~Registro();
+	Registro& operator=(const Registro&);
     string getDireccion() const;
     string getMail() const;
     string getNombre() const;

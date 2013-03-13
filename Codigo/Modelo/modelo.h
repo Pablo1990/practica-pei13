@@ -20,7 +20,6 @@
 #define _MODELO_H_
 
 #include <cstdlib>
-
 #include <list>
 #include <stddef.h>
 
@@ -32,7 +31,7 @@
  * Proposito: La clase base de los modelos.
  */
 
-class Vista;
+//class Vista;
 using namespace std;
 
 /*!
@@ -41,7 +40,7 @@ using namespace std;
  */
 class Modelo
 {
-  friend class Vista;
+  //friend class Vista;
   // Parte publica
 public:
 
@@ -67,20 +66,20 @@ public:
    * indicar que actualice a todas menos a ella que ya muestra el
    * estado en el que quedara el modelo.
    */
-  void actualizar_vistas(Vista* v = NULL);
+  //void actualizar_vistas(Vista* v = NULL);
 
 
   // Parte protegida
 protected:
   //! La lista de vistas asociadas con este modelo.
-  list<Vista*> lv;
+  //list<Vista*> lv;
 
   /*! 
    * \brief Añade una nueva vista para este modelo.
    *
    * \param v La vista a añadir al modelo.
    */
-  void anyadir_vista(Vista* v) { lv.push_back(v); }
+  //void anyadir_vista(Vista* v) { lv.push_back(v); }
 
   // Parte privada
 private:

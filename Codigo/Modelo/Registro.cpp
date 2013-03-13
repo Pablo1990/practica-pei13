@@ -16,6 +16,19 @@ Registro::~Registro() {
 	// TODO Auto-generated destructor stub
 }
 
+Registro& Registro::operator =(const Registro& reg)
+{
+  if (this != &reg) {
+	direccion = reg.direccion;
+	eMail = reg.eMail;
+	nombre = reg.nombre;
+	poblacion = reg.poblacion;
+	cPostal = reg.cPostal;
+	telefono = reg.telefono;
+  }
+  return (*this);
+}
+
 string Registro::getDireccion() const
 {
     return direccion;
