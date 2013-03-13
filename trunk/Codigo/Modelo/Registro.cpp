@@ -1,0 +1,80 @@
+/*
+ * Registro.cpp
+ *
+ *  Created on: 13/03/2013
+ *      Author: pvm22
+ */
+
+#include "Registro.h"
+
+Registro::Registro() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Registro::~Registro() {
+	// TODO Auto-generated destructor stub
+}
+
+string Registro::getDireccion() const
+{
+    return direccion;
+}
+
+string Registro::getMail() const
+{
+    return eMail;
+}
+
+string Registro::getNombre() const
+{
+    return nombre;
+}
+
+string Registro::getPoblacion() const
+{
+    return poblacion;
+}
+
+string Registro::getPostal() const
+{
+    return cPostal;
+}
+
+string Registro::getTelefono() const
+{
+    return telefono;
+}
+
+void Registro::setDireccion(string direccion)
+{
+    this->direccion = direccion;
+}
+
+void Registro::setMail(string eMail)
+{
+    this->eMail = eMail;
+}
+
+void Registro::setNombre(string nombre)
+{
+    this->nombre = nombre;
+}
+
+void Registro::setPoblacion(string poblacion)
+{
+    this->poblacion = poblacion;
+}
+
+void Registro::setPostal(string cPostal)
+{
+    this->cPostal = cPostal;
+}
+
+void Registro::setTelefono(string telefono)
+{
+    this->telefono = telefono;
+}
+
+
+
