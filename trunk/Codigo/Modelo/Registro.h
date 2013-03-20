@@ -17,6 +17,8 @@ using namespace std;
 class Registro {
 public:
 	Registro();
+	Registro(string, string , string, string, string, string);
+	Registro(const Registro&);
 	~Registro();
 	Registro& operator=(const Registro&);
     string getDireccion() const;

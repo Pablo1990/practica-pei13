@@ -75,11 +75,10 @@ bool EsEspacio(char c){
 void ModeloRegistro::procesarRegistro(string *lineas)
 {
 	string resul;
-
-	Registro reg;
+	Registro* reg=NULL;
+	*reg = Registro();
 	for(int i=0; i<6; i++)
 	{
-		reg = Registro();
 		string linea=lineas[i];
 		bool encon=false;
 		resul="";
@@ -98,24 +97,24 @@ void ModeloRegistro::procesarRegistro(string *lineas)
 				resul+=linea[j];
 			}
 		}
-
 		switch(i){
-			case 0: reg.setNombre(resul);
+			case 0: reg->setNombre(resul);
 				break;
-			case 1: reg.setDireccion(resul);
+			case 1: reg->setDireccion(resul);
 				break;
-			case 2: reg.setPoblacion(resul);
+			case 2: reg->setPoblacion(resul);
 				break;
-			case 3: reg.setPostal(resul);
+			case 3: reg->setPostal(resul);
 				break;
-			case 4: reg.setTelefono(resul);
+			case 4: reg->setTelefono(resul);
 				break;
-			case 5: reg.setMail(resul);
+			case 5: reg->setMail(resul);
 				break;
+			default: break;
 		}
-		anyadirRegistro(&reg);
-
 	}
+
+	lr.push_back(reg);
 }
 
 bool ModeloRegistro::LeerFichero(char* nombreFichero)
@@ -151,6 +150,7 @@ bool ModeloRegistro::LeerFichero(char* nombreFichero)
 		cout<<"Error al abrir el fichero "<<nombreFichero<<endl;
 		return false;
 	}
+	
 
 }
 
@@ -159,7 +159,8 @@ void ModeloRegistro::Imprimir()
   list<Registro*>::iterator t;
 
   for(t = lr.begin(); t != lr.end(); t++){
-      cout<<(*t)->getTelefono();
+	cout<<"ccc"<<endl;
+      cout<<(*t)->getNombre();
   }
 
 }
