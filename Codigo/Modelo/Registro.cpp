@@ -9,7 +9,34 @@
 
 Registro::Registro() {
 	// TODO Auto-generated constructor stub
+	nombre="";
+	eMail="";
+	poblacion="";
+	cPostal="";
+	telefono="";
+	direccion="";
+}
 
+Registro::Registro(string n, string mail, string pob, string cp, string tel, string dir) {
+	// TODO Auto-generated constructor stub
+	nombre=n;
+	eMail=mail;
+	poblacion=pob;
+	cPostal=cp;
+	telefono=tel;
+	direccion=dir;
+}
+
+Registro::Registro(const Registro& reg)
+{
+  if (this != &reg) {
+	direccion = reg.direccion;
+	eMail = reg.eMail;
+	nombre = reg.nombre;
+	poblacion = reg.poblacion;
+	cPostal = reg.cPostal;
+	telefono = reg.telefono;
+  }
 }
 
 Registro::~Registro() {

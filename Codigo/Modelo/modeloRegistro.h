@@ -66,9 +66,8 @@ public:
 
   // Parte protegida
 protected:
-  //! Nombre de la persona.
  list<Registro*> lr;
- void anyadirRegistro(Registro* r) { lr.push_back(r); }
+ //void anyadirRegistro(Registro r) {lr.push_back(r); }
   // Parte privada
 private:
 

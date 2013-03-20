@@ -6,9 +6,10 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	ModeloRegistro mr = ModeloRegistro();
+	ModeloRegistro mr;
 	
 	if(mr.LeerFichero(argv[1]))
+	{
 		mr.Imprimir();
-
+	}
 }
