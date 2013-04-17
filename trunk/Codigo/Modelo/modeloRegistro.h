@@ -62,11 +62,14 @@ public:
 
   bool LeerFichero(char*);
 
-  void Imprimir();
+  void Imprimir(int);
+  void ImprimirRegistro(Registro*);
+  void Buscar(const string);
 
   // Parte protegida
 protected:
  list<Registro*> lr;
+ list<Registro*> busqueda;
  //void anyadirRegistro(Registro r) {lr.push_back(r); }
   // Parte privada
 private:

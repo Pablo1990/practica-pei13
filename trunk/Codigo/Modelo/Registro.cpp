@@ -15,6 +15,7 @@ Registro::Registro() {
 	cPostal="";
 	telefono="";
 	direccion="";
+	buscado = false;
 }
 
 Registro::Registro(string n, string mail, string pob, string cp, string tel, string dir) {
@@ -25,6 +26,7 @@ Registro::Registro(string n, string mail, string pob, string cp, string tel, str
 	cPostal=cp;
 	telefono=tel;
 	direccion=dir;
+	buscado = false;
 }
 
 Registro::Registro(const Registro& reg)
@@ -36,6 +38,7 @@ Registro::Registro(const Registro& reg)
 	poblacion = reg.poblacion;
 	cPostal = reg.cPostal;
 	telefono = reg.telefono;
+	buscado = reg.buscado;
   }
 }
 
@@ -52,6 +55,7 @@ Registro& Registro::operator =(const Registro& reg)
 	poblacion = reg.poblacion;
 	cPostal = reg.cPostal;
 	telefono = reg.telefono;
+	buscado = reg.buscado;
   }
   return (*this);
 }
@@ -86,6 +90,10 @@ string Registro::getTelefono() const
     return telefono;
 }
 
+bool Registro::getBuscado() const
+{
+    return buscado;
+}
 void Registro::setDireccion(string direccion)
 {
     this->direccion = direccion;
@@ -114,6 +122,11 @@ void Registro::setPostal(string cPostal)
 void Registro::setTelefono(string telefono)
 {
     this->telefono = telefono;
+}
+
+void Registro::setBuscado(bool buscado)
+{
+    this->buscado=buscado;
 }
 
 

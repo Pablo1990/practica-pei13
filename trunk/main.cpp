@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	
 	if(mr.LeerFichero(argv[1]))
 	{
-		mr.Imprimir();
+		mr.Buscar(argv[2]);
+		mr.Imprimir(1);
 	}
 }
