@@ -69,14 +69,13 @@ ModeloRegistro & ModeloRegistro::operator =(const ModeloRegistro &un_modeloRegis
 }
 
 bool EsEspacio(char c){
-	return (c==' ');
+	return (c==' ' || c=='\t');
 }
 
 void ModeloRegistro::procesarRegistro(string *lineas)
 {
 	string resul;
-	Registro* reg=NULL;
-	*reg = Registro();
+	Registro* reg = new Registro();
 	for(int i=0; i<6; i++)
 	{
 		string linea=lineas[i];
@@ -130,17 +129,20 @@ bool ModeloRegistro::LeerFichero(char* nombreFichero)
 		getline(fi, linea);
 
 		while(!fi.eof())//lee linea a linea
-		{	
-			lineas[cont]=linea;	
+		{
+			if(linea.length() > 3) //en futuras ampliaciones habría que cambiarlo. Hace mierdas
+			{
+				lineas[cont]=linea;	
 			
-			if(cont == 5)
-			{	
-				procesarRegistro(lineas);
-				cont = -1;
+				if(cont == 5)
+				{	
+					procesarRegistro(lineas);
+					cont = -1;
+				}
+				cont++;
 			}			
-			linea="";
-			getline(fi,linea);
-			cont++;
+				linea="";
+				getline(fi,linea);
 		}
 		fi.close();
 		return true;
@@ -154,15 +156,67 @@ bool ModeloRegistro::LeerFichero(char* nombreFichero)
 
 }
 
-void ModeloRegistro::Imprimir()
+void ModeloRegistro::Buscar(string filtro) //, int campo
 {
-  list<Registro*>::iterator t;
+	
+  	list<Registro*>::iterator t;
+	bool find = false;
+	//if(campo==1)
+	
+  	for(t = lr.begin(); t != lr.end(); t++)
+	{
+	//switch(campo){
+	      	if((*t)->getNombre() == filtro)
+		{
+			(*t)->setBuscado(true);
+		}
+		else if((*t)->getDireccion() == filtro) 
+		{
+			(*t)->setBuscado(true);
+		}
+		else if((*t)->getPoblacion() == filtro) 
+		{
+			(*t)->setBuscado(true);
 
-  for(t = lr.begin(); t != lr.end(); t++){
-	cout<<"ccc"<<endl;
-      cout<<(*t)->getNombre();
-  }
+		}
+		else if((*t)->getPostal() == filtro) 
+		{
+			(*t)->setBuscado(true);
+		}
+		else if((*t)->getTelefono() == filtro) 
+		{
+			(*t)->setBuscado(true);
+		}
+		else if((*t)->getMail() == filtro) 
+		{
+			(*t)->setBuscado(true);
+		}
+  	}
 
 }
 
+void ModeloRegistro::Imprimir(int tipo)
+{
+  list<Registro*>::iterator t;
+  for(t = lr.begin(); t != lr.end(); t++){
+	if(tipo == 1 && (*t)->getBuscado())//buscar
+	{
+		ImprimirRegistro(*t);
+	}
+	else if(tipo == 0)
+	{
+		ImprimirRegistro(*t);
+	}
+  }
+}
+
+void ModeloRegistro::ImprimirRegistro(Registro* t)
+{
+	cout<<"Nombre: "<<(t)->getNombre()<<endl;
+	cout<<"Direccion: "<<(t)->getDireccion()<<endl;
+      cout<<"Poblacion: "<<(t)->getPoblacion()<<endl;
+      cout<<"CPostal: "<<(t)->getPostal()<<endl;
+      cout<<"Telefono: "<<(t)->getTelefono()<<endl;
+      cout<<"Email: "<<(t)->getMail()<<endl;
+}
 

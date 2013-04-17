@@ -27,12 +27,14 @@ public:
     string getPoblacion() const;
     string getPostal() const;
     string getTelefono() const;
+	bool getBuscado() const;
     void setDireccion(string direccion);
     void setMail(string eMail);
     void setNombre(string nombre);
     void setPoblacion(string poblacion);
     void setPostal(string cPostal);
     void setTelefono(string telefono);
+	void setBuscado(bool buscado);
 	
 private:
 	string nombre;
@@ -41,6 +43,7 @@ private:
 	string cPostal;
 	string telefono;
 	string eMail;
+	bool buscado;
 };
 
 #endif /* REGISTRO_H_ */
