@@ -16,8 +16,8 @@ using namespace std;
 
 class Registro {
 public:
-	Registro();
-	Registro(string, string , string, string, string, string);
+	Registro(int);
+	Registro(int, string, string , string, string, string, string);
 	Registro(const Registro&);
 	~Registro();
 	Registro& operator=(const Registro&);
@@ -35,8 +35,10 @@ public:
     void setPostal(string cPostal);
     void setTelefono(string telefono);
 	void setBuscado(bool buscado);
+	void setId(int);
 	
 private:
+	int id;
 	string nombre;
 	string direccion;
 	string poblacion;

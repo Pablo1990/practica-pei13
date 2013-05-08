@@ -59,12 +59,15 @@ public:
   ModeloRegistro & operator =(const ModeloRegistro &un_modeloRegistro);
 
   void procesarRegistro(string[]);
-
+void CrearRegistro(string , string , string , string, string , string );
+  bool EscribirFichero(char* );
   bool LeerFichero(char*);
-
+  bool Modificar(int, string, string, string, string, string, string);
   void Imprimir(int);
   void ImprimirRegistro(Registro*);
   void Buscar(const string);
+  bool Borrar(int);
+  void ActualizarIds();
 
   // Parte protegida
 protected:
