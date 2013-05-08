@@ -1,15 +1,14 @@
-NOMBRE	Juan Perez Lopez
-DIRECCION	Calle Maromo
-POBLACION	Alicante
-CPOSTAL	0320
-TELEFONO	9653014
-EMAIL	paquito@enfiestas.es
+NOMBRE: Juansdfsdf
+DIRECCION: serwerasdfsdf
+POBLACION: eldasdfsd
+CPOSTAL: lsajdflsjsdfdf
+TELEFONO: w23343234234
+EMAIL: culozxcvz
 
-
-NOMBRE	Juan Perez
-DIRECCION	Calkjhokjhle Maromo
-POBLACION	Elda
-CPOSTAL	03207777
-TELEFONO	965301475
-EMAIL	paquito@enfiestas.es
+NOMBRE: Juan
+DIRECCION: serwer
+POBLACION: elda
+CPOSTAL: lsajdflsjdf
+TELEFONO: w2334
+EMAIL: culo
 

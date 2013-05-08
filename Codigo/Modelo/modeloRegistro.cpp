@@ -72,10 +72,17 @@ bool EsEspacio(char c){
 	return (c==' ' || c=='\t');
 }
 
+void ModeloRegistro::CrearRegistro(string nombre, string mail, string pobl, string cp, string tele, string dir){
+
+	Registro* reg = new Registro(lr.size(), nombre, mail, pobl, cp, tele, dir);
+	lr.push_back(reg);
+}
+
 void ModeloRegistro::procesarRegistro(string *lineas)
 {
 	string resul;
-	Registro* reg = new Registro();
+	Registro* reg = new Registro(lr.size());
+	
 	for(int i=0; i<6; i++)
 	{
 		string linea=lineas[i];
@@ -96,6 +103,7 @@ void ModeloRegistro::procesarRegistro(string *lineas)
 				resul+=linea[j];
 			}
 		}
+
 		switch(i){
 			case 0: reg->setNombre(resul);
 				break;
@@ -114,6 +122,25 @@ void ModeloRegistro::procesarRegistro(string *lineas)
 	}
 
 	lr.push_back(reg);
+}
+
+bool ModeloRegistro::EscribirFichero(char* nombreFichero)
+{
+	ofstream fo;
+	fo.open(nombreFichero, ios::out);
+	list<Registro*>::iterator t;
+  	for(t = lr.begin(); t != lr.end(); t++){
+		fo<<"NOMBRE: "<<(*t)->getNombre()<<endl;
+		fo<<"DIRECCION: "<<(*t)->getDireccion()<<endl;
+      		fo<<"POBLACION: "<<(*t)->getPoblacion()<<endl;
+      		fo<<"CPOSTAL: "<<(*t)->getPostal()<<endl;
+      		fo<<"TELEFONO: "<<(*t)->getTelefono()<<endl;
+      		fo<<"EMAIL: "<<(*t)->getMail()<<endl;
+		fo<<endl;
+	}
+
+	fo.close();
+
 }
 
 bool ModeloRegistro::LeerFichero(char* nombreFichero)
@@ -156,6 +183,16 @@ bool ModeloRegistro::LeerFichero(char* nombreFichero)
 
 }
 
+void ModeloRegistro::ActualizarIds(){
+
+  list<Registro*>::iterator t;
+  int cont=0;
+  for(t = lr.begin(); t != lr.end(); t++){
+	(*t)->setId(cont);
+	cont++;
+  }
+}
+
 void ModeloRegistro::Buscar(string filtro) //, int campo
 {
 	
@@ -195,6 +232,46 @@ void ModeloRegistro::Buscar(string filtro) //, int campo
 
 }
 
+bool ModeloRegistro::Borrar(int id2)
+{
+	int cont=0;
+	list<Registro*>::iterator t = lr.begin();
+	while(cont<id2 && t!=lr.end())
+	{
+		t++;
+		cont++;
+	}
+
+	if(id2==cont)
+	{
+		lr.erase(t);
+		ActualizarIds();
+		return true;
+	}	
+	
+	return false;	
+}
+
+bool ModeloRegistro::Modificar(int id2, string n, string mail, string pob, string cp, string tel, string dir)
+{
+	int cont=0;
+	list<Registro*>::iterator t = lr.begin();
+	while(cont<id2)
+	{
+		t++;
+		cont++;
+	}
+
+	(*t)->setNombre(n);
+	(*t)->setDireccion(mail);
+	(*t)->setPoblacion(pob);
+	(*t)->setPostal(cp);
+	(*t)->setTelefono(tel);
+	(*t)->setMail(dir);
+
+	return true;
+}
+
 void ModeloRegistro::Imprimir(int tipo)
 {
   list<Registro*>::iterator t;
@@ -208,10 +285,12 @@ void ModeloRegistro::Imprimir(int tipo)
 		ImprimirRegistro(*t);
 	}
   }
+	cout<<endl;
 }
 
 void ModeloRegistro::ImprimirRegistro(Registro* t)
-{
+{	
+	cout<<"----------------REGISTRO-----------------"<<endl;
 	cout<<"Nombre: "<<(t)->getNombre()<<endl;
 	cout<<"Direccion: "<<(t)->getDireccion()<<endl;
       cout<<"Poblacion: "<<(t)->getPoblacion()<<endl;

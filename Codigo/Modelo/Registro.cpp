@@ -7,8 +7,9 @@
 
 #include "Registro.h"
 
-Registro::Registro() {
+Registro::Registro(int iden) {
 	// TODO Auto-generated constructor stub
+	id = iden;
 	nombre="";
 	eMail="";
 	poblacion="";
@@ -18,8 +19,9 @@ Registro::Registro() {
 	buscado = false;
 }
 
-Registro::Registro(string n, string mail, string pob, string cp, string tel, string dir) {
+Registro::Registro(int id, string n, string mail, string pob, string cp, string tel, string dir) {
 	// TODO Auto-generated constructor stub
+	id = id;
 	nombre=n;
 	eMail=mail;
 	poblacion=pob;
@@ -32,6 +34,7 @@ Registro::Registro(string n, string mail, string pob, string cp, string tel, str
 Registro::Registro(const Registro& reg)
 {
   if (this != &reg) {
+	id = reg.id;
 	direccion = reg.direccion;
 	eMail = reg.eMail;
 	nombre = reg.nombre;
@@ -49,6 +52,7 @@ Registro::~Registro() {
 Registro& Registro::operator =(const Registro& reg)
 {
   if (this != &reg) {
+	id = reg.id;
 	direccion = reg.direccion;
 	eMail = reg.eMail;
 	nombre = reg.nombre;
@@ -127,6 +131,11 @@ void Registro::setTelefono(string telefono)
 void Registro::setBuscado(bool buscado)
 {
     this->buscado=buscado;
+}
+
+void Registro::setId(int i)
+{
+	this->id = i;
 }
 
 
