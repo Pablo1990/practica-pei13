@@ -69,7 +69,7 @@ void CrearRegistro(string , string , string , string, string , string );
   void Buscar(const string);
   bool Borrar(int);
   void ActualizarIds();
-  Registro GetRegistro(int);
+  string* GetRegistro(int);
 
   // Parte protegida
 protected:
