@@ -299,16 +299,23 @@ void ModeloRegistro::ImprimirRegistro(Registro* t)
       cout<<"Email: "<<(t)->getMail()<<endl;
 }
 
-Registro* ModeloRegistro::GetRegistro(int id)
+string* ModeloRegistro::GetRegistro(int id)
 {
 	list<Registro*>::iterator t;
+	string ar[6];
   for(t = lr.begin(); t != lr.end(); t++){
 	if((*t)->getId()==id)
 	{
-		return (t);
+		ar[0]=(*t)->getNombre();
+		ar[1]=(*t)->getDireccion();
+		ar[2]=(*t)->getPoblacion();
+		ar[3]=(*t)->getPostal();
+		ar[4]=(*t)->getTelefono();
+		ar[5]=(*t)->getMail();
+		return ar;
 	}
   }
 
-return NULL;
+return ar;
 }
 
