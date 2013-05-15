@@ -138,5 +138,9 @@ void Registro::setId(int i)
 	this->id = i;
 }
 
+int Registro::getId(){
+
+	return this->id;
+}
 
 
