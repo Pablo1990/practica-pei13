@@ -14,10 +14,11 @@ int main(int argc, char *argv[])
      window->show();
 
 	ModeloRegistro mr;
-	
+	string *ar;
 	if(mr.LeerFichero(argv[1]))
 	{
-		ui.INombre->setPlainText(QApplication::translate("MainWindow", "Pepe", 0, QApplication::UnicodeUTF8));
+		ar=mr.GetRegistro(1);
+		ui.INombre->setPlainText(&ar[0]);
 	}
      return app.exec();
  }
