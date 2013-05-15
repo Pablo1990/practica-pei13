@@ -36,6 +36,7 @@ public:
     void setTelefono(string telefono);
 	void setBuscado(bool buscado);
 	void setId(int);
+	int getId();
 	
 private:
 	int id;
