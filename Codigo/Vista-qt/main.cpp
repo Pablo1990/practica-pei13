@@ -17,8 +17,8 @@ int main(int argc, char *argv[])
 	string *ar;
 	if(mr.LeerFichero(argv[1]))
 	{
-		ar=mr.GetRegistro(1);
-		ui.INombre->setPlainText(&ar[0]);
+        ar=mr.GetRegistro(0);
+        ui.INombre->setPlainText(QString::fromUtf8( ar[0].c_str() ));
 	}
      return app.exec();
  }
