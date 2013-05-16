@@ -302,7 +302,9 @@ void ModeloRegistro::ImprimirRegistro(Registro* t)
 string* ModeloRegistro::GetRegistro(int id)
 {
 	list<Registro*>::iterator t;
+    string* ptr;
 	string ar[6];
+    ptr = ar;
   for(t = lr.begin(); t != lr.end(); t++){
 	if((*t)->getId()==id)
 	{
@@ -312,10 +314,10 @@ string* ModeloRegistro::GetRegistro(int id)
 		ar[3]=(*t)->getPostal();
 		ar[4]=(*t)->getTelefono();
 		ar[5]=(*t)->getMail();
-		return ar;
+        return ptr;
 	}
   }
 
-return ar;
+return ptr;
 }
 
