@@ -20,6 +20,7 @@
 #define _MODELOREGISTRO_H_
 
 #include <string>
+#include <vector>
 #include "modelo.h"
 #include "Registro.h"
 
@@ -69,7 +70,7 @@ void CrearRegistro(string , string , string , string, string , string );
   void Buscar(const string);
   bool Borrar(int);
   void ActualizarIds();
-  string* GetRegistro(int);
+  std::vector<string> GetRegistro(int);
 
   // Parte protegida
 protected:

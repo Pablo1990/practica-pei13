@@ -1,6 +1,7 @@
 #include "ui_form.h"
 #include "../Modelo/modeloRegistro.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main(int argc, char *argv[])
      window->show();
 
 	ModeloRegistro mr;
-	string *ar;
+    std::vector<std::string> ar;
 	if(mr.LeerFichero(argv[1]))
 	{
         ar=mr.GetRegistro(0);
