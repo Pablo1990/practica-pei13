@@ -23,6 +23,7 @@
  */
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "modeloRegistro.h"
 #include "Registro.h"
 
@@ -299,25 +300,23 @@ void ModeloRegistro::ImprimirRegistro(Registro* t)
       cout<<"Email: "<<(t)->getMail()<<endl;
 }
 
-string* ModeloRegistro::GetRegistro(int id)
+std::vector<std::string> ModeloRegistro::GetRegistro(int id)
 {
-	list<Registro*>::iterator t;
-    string* ptr;
-	string ar[6];
-    ptr = ar;
+    list<Registro*>::iterator t;
+    std::vector<std::string> ar;
   for(t = lr.begin(); t != lr.end(); t++){
 	if((*t)->getId()==id)
 	{
-		ar[0]=(*t)->getNombre();
-		ar[1]=(*t)->getDireccion();
-		ar[2]=(*t)->getPoblacion();
-		ar[3]=(*t)->getPostal();
-		ar[4]=(*t)->getTelefono();
-		ar[5]=(*t)->getMail();
-        return ptr;
+        ar.push_back((*t)->getNombre());
+        ar.push_back((*t)->getDireccion());
+        ar.push_back((*t)->getPoblacion());
+        ar.push_back((*t)->getPostal());
+        ar.push_back((*t)->getTelefono());
+        ar.push_back((*t)->getMail());
+        return ar;
 	}
   }
 
-return ptr;
+  return ar;
 }
 
