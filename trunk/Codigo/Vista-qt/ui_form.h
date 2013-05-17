@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'form.ui'
 **
-** Created: Wed May 15 16:05:03 2013
+** Created: Fri May 17 10:10:01 2013
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,6 +18,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
@@ -31,6 +32,14 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLabel *label_4;
+    QLabel *label_3;
+    QLabel *label_2;
+    QLabel *label;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
     QPlainTextEdit *INombre;
@@ -42,29 +51,58 @@ public:
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *BtPrevRegistro;
-    QLabel *LbIdRegistro;
-    QPushButton *BtNextRegistro;
-    QWidget *verticalLayoutWidget;
-    QVBoxLayout *verticalLayout;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_5;
-    QLabel *label_6;
-    QLabel *label_4;
-    QLabel *label_3;
+    QLabel *label_7;
+    QPushButton *pushButton;
     QMenuBar *menubar;
+    QMenu *menuAcerca_de;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(818, 733);
+        MainWindow->resize(723, 588);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(50, 40, 161, 311));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_5 = new QLabel(verticalLayoutWidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        verticalLayout->addWidget(label_5);
+
+        label_6 = new QLabel(verticalLayoutWidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        verticalLayout->addWidget(label_6);
+
+        label_4 = new QLabel(verticalLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        verticalLayout->addWidget(label_4);
+
+        label_3 = new QLabel(verticalLayoutWidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout->addWidget(label_3);
+
+        label_2 = new QLabel(verticalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        verticalLayout->addWidget(label_2);
+
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        verticalLayout->addWidget(label);
+
         verticalLayoutWidget_2 = new QWidget(centralwidget);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(130, 30, 221, 271));
+        verticalLayoutWidget_2->setGeometry(QRect(210, 40, 181, 311));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -100,7 +138,7 @@ public:
 
         horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(80, 320, 211, 41));
+        horizontalLayoutWidget->setGeometry(QRect(110, 370, 201, 31));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -109,62 +147,30 @@ public:
 
         horizontalLayout->addWidget(BtPrevRegistro);
 
-        LbIdRegistro = new QLabel(horizontalLayoutWidget);
-        LbIdRegistro->setObjectName(QString::fromUtf8("LbIdRegistro"));
-        LbIdRegistro->setMaximumSize(QSize(30, 30));
-        LbIdRegistro->setAlignment(Qt::AlignCenter);
+        label_7 = new QLabel(horizontalLayoutWidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMaximumSize(QSize(20, 30));
+        label_7->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(LbIdRegistro);
+        horizontalLayout->addWidget(label_7);
 
-        BtNextRegistro = new QPushButton(horizontalLayoutWidget);
-        BtNextRegistro->setObjectName(QString::fromUtf8("BtNextRegistro"));
+        pushButton = new QPushButton(horizontalLayoutWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
-        horizontalLayout->addWidget(BtNextRegistro);
-
-        verticalLayoutWidget = new QWidget(centralwidget);
-        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(30, 30, 101, 271));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(verticalLayoutWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        verticalLayout->addWidget(label);
-
-        label_2 = new QLabel(verticalLayoutWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-
-        verticalLayout->addWidget(label_2);
-
-        label_5 = new QLabel(verticalLayoutWidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        verticalLayout->addWidget(label_5);
-
-        label_6 = new QLabel(verticalLayoutWidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-
-        verticalLayout->addWidget(label_6);
-
-        label_4 = new QLabel(verticalLayoutWidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-
-        verticalLayout->addWidget(label_4);
-
-        label_3 = new QLabel(verticalLayoutWidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        verticalLayout->addWidget(label_3);
+        horizontalLayout->addWidget(pushButton);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 818, 25));
+        menubar->setGeometry(QRect(0, 0, 723, 25));
+        menuAcerca_de = new QMenu(menubar);
+        menuAcerca_de->setObjectName(QString::fromUtf8("menuAcerca_de"));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuAcerca_de->menuAction());
 
         retranslateUi(MainWindow);
 
@@ -174,15 +180,16 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        label_5->setText(QApplication::translate("MainWindow", "Nombre", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("MainWindow", "Direccion", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MainWindow", "Poblacion", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("MainWindow", "C\303\263digo Postal", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MainWindow", "Tel\303\251fono", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "E-mail", 0, QApplication::UnicodeUTF8));
         BtPrevRegistro->setText(QApplication::translate("MainWindow", "<", 0, QApplication::UnicodeUTF8));
-        LbIdRegistro->setText(QApplication::translate("MainWindow", "1", 0, QApplication::UnicodeUTF8));
-        BtNextRegistro->setText(QApplication::translate("MainWindow", ">", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "NOMBRE", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("MainWindow", "DIRECCION", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("MainWindow", "POBLACION", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("MainWindow", "CPOSTAL", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("MainWindow", "TELEFONO", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("MainWindow", "EMAIL", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("MainWindow", "1", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", ">", 0, QApplication::UnicodeUTF8));
+        menuAcerca_de->setTitle(QApplication::translate("MainWindow", "Acerca de", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
