@@ -71,6 +71,7 @@ void CrearRegistro(string , string , string , string, string , string );
   bool Borrar(int);
   void ActualizarIds();
   std::vector<string> GetRegistro(int);
+  int GetNumRegistros();
 
   // Parte protegida
 protected:

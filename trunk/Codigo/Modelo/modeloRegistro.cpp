@@ -1,26 +1,4 @@
-// -*- C++ -*-
 
-/*
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Library General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
-
-/*
- * Fecha: Tue Sep 12 16:36:32 CEST 2000
- * Autor: Antonio-M. Corbi Bellot
- * Email: acorbi@dlsi.ua.es
- */
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -75,8 +53,9 @@ bool EsEspacio(char c){
 
 void ModeloRegistro::CrearRegistro(string nombre, string mail, string pobl, string cp, string tele, string dir){
 
-	Registro* reg = new Registro(lr.size(), nombre, mail, pobl, cp, tele, dir);
-	lr.push_back(reg);
+    Registro* reg = new Registro(0, nombre, mail, pobl, cp, tele, dir);
+    lr.push_back(reg);
+    ActualizarIds(); //habría que cambiarlo
 }
 
 void ModeloRegistro::procesarRegistro(string *lineas)
@@ -316,7 +295,11 @@ std::vector<std::string> ModeloRegistro::GetRegistro(int id)
         return ar;
 	}
   }
-
+  ar.push_back("-1");
   return ar;
 }
 
+int ModeloRegistro::GetNumRegistros()
+{
+    return lr.size();
+}
