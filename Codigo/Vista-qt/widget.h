@@ -21,9 +21,15 @@ public:
 private slots:
     void on_BtNextRegistro_clicked();
 
-    void on_pushButton_clicked();
-
     void on_BtPrevRegistro_clicked();
+
+    void on_BtCargaFichero_clicked();
+
+    void on_BtNuevoRegistro_clicked();
+
+    void on_BtGuardarRegistro_clicked();
+
+    void on_BtBorrarRegistro_clicked();
 
 private:
     Ui::Widget *ui;
