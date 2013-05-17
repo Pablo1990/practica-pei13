@@ -26,5 +26,6 @@ int main(int argc, char *argv[])
         ui.ITelefono->setPlainText(QString::fromUtf8( ar[4].c_str() ));
         ui.IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
 	}
+
      return app.exec();
  }
