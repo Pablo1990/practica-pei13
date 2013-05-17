@@ -15,6 +15,7 @@ class Widget : public QWidget
     
 public:
     ModeloRegistro mr;
+    QString fileName;
     explicit Widget(QWidget *parent = 0);
     ~Widget();
     
@@ -30,6 +31,8 @@ private slots:
     void on_BtGuardarRegistro_clicked();
 
     void on_BtBorrarRegistro_clicked();
+
+    void on_BtGuardarFichero_clicked();
 
 private:
     Ui::Widget *ui;
