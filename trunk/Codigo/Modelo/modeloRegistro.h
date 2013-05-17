@@ -62,7 +62,7 @@ public:
 
   void procesarRegistro(string[]);
 void CrearRegistro(string , string , string , string, string , string );
-  bool EscribirFichero(char* );
+  bool EscribirFichero(const char * );
   bool LeerFichero(char*);
   bool Modificar(int, string, string, string, string, string, string);
   void Imprimir(int);
