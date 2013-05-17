@@ -14,11 +14,16 @@ SOURCES += main.cpp\
            ../Modelo/modeloRegistro.cpp \
            ../Modelo/modelo.cpp \
            ../Modelo/Registro.cpp \
-        widget.cpp
+        widget.cpp \
+    acercade.cpp
 
 HEADERS  += widget.h \
            ../Modelo/modeloRegistro.h \
            ../Modelo/modelo.h \
-           ../Modelo/Registro.h
+           ../Modelo/Registro.h \
+    acercade.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    acercade.ui
+
+RESOURCES +=

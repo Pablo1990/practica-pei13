@@ -1,6 +1,8 @@
 #include "widget.h"
 #include "../Modelo/modeloRegistro.h"
 #include "ui_widget.h"
+#include "acercade.h"
+#include "ui_acercade.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -63,7 +65,7 @@ void Widget::on_BtCargaFichero_clicked()
         ui->ITelefono->setPlainText(QString::fromUtf8( ar[4].c_str() ));
         ui->IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
         ui->LbId->setText("0");
-        ui->BtGuardarFichero->setEnabled(true);
+        ui->BtGuardarRegistro->setEnabled(true);
     }
 }
 
@@ -129,4 +131,10 @@ void Widget::on_BtBorrarRegistro_clicked()
 void Widget::on_BtGuardarFichero_clicked()
 {
     mr.EscribirFichero(fileName.toAscii().data());
+}
+
+void Widget::on_commandLinkButton_clicked()
+{
+    acercade a;
+    a.exec();
 }

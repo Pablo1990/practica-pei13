@@ -34,6 +34,8 @@ private slots:
 
     void on_BtGuardarFichero_clicked();
 
+    void on_commandLinkButton_clicked();
+
 private:
     Ui::Widget *ui;
 };

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>755</width>
-    <height>597</height>
+    <width>1187</width>
+    <height>612</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
      <rect>
       <x>50</x>
       <y>40</y>
-      <width>271</width>
+      <width>161</width>
       <height>311</height>
      </rect>
     </property>
@@ -88,6 +88,9 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <property name="spacing">
       <number>6</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <item>
       <widget class="QPlainTextEdit" name="INombre"/>
@@ -154,7 +157,7 @@
    <widget class="QWidget" name="horizontalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>360</y>
       <width>269</width>
       <height>39</height>
@@ -190,8 +193,8 @@
    <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>460</y>
+      <x>100</x>
+      <y>470</y>
       <width>244</width>
       <height>41</height>
      </rect>
@@ -206,15 +209,25 @@
      </item>
      <item>
       <widget class="QPushButton" name="BtGuardarFichero">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
        <property name="text">
         <string>Guardar fichero</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QCommandLinkButton" name="commandLinkButton">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>540</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Acerca de</string>
+    </property>
    </widget>
   </widget>
   <zorder>centralwidget</zorder>
