@@ -125,7 +125,7 @@ void ModeloRegistro::procesarRegistro(string *lineas)
 	lr.push_back(reg);
 }
 
-bool ModeloRegistro::EscribirFichero(char* nombreFichero)
+bool ModeloRegistro::EscribirFichero(const char* nombreFichero)
 {
 	ofstream fo;
 	fo.open(nombreFichero, ios::out);
