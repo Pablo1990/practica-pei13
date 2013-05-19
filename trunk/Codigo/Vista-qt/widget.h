@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "../Modelo/modeloRegistro.h"
 #include <QFileDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class Widget;
@@ -16,6 +17,10 @@ class Widget : public QWidget
 public:
     ModeloRegistro mr;
     QString fileName;
+    bool modificar;
+    bool modoBuscar;
+    std::vector<Registro*> buscados;
+    int contadorBuscados;
     explicit Widget(QWidget *parent = 0);
     ~Widget();
     
@@ -35,6 +40,12 @@ private slots:
     void on_BtGuardarFichero_clicked();
 
     void on_commandLinkButton_clicked();
+
+    void on_BtModificar_clicked();
+
+    void on_BtBuscar_clicked();
+
+    void on_checkBox_clicked();
 
 private:
     Ui::Widget *ui;

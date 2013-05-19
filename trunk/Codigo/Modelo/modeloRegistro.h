@@ -72,6 +72,7 @@ void CrearRegistro(string , string , string , string, string , string );
   void ActualizarIds();
   std::vector<string> GetRegistro(int);
   int GetNumRegistros();
+  std::vector<Registro*> GetRegistrosBuscados();
 
   // Parte protegida
 protected:

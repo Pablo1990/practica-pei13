@@ -9,7 +9,7 @@
 
 Registro::Registro(int iden) {
 	// TODO Auto-generated constructor stub
-	id = iden;
+    this->id = iden;
 	nombre="";
 	eMail="";
 	poblacion="";
@@ -21,7 +21,7 @@ Registro::Registro(int iden) {
 
 Registro::Registro(int id, string n, string mail, string pob, string cp, string tel, string dir) {
 	// TODO Auto-generated constructor stub
-	id = id;
+    this->id = id;
 	nombre=n;
 	eMail=mail;
 	poblacion=pob;
@@ -34,7 +34,7 @@ Registro::Registro(int id, string n, string mail, string pob, string cp, string 
 Registro::Registro(const Registro& reg)
 {
   if (this != &reg) {
-	id = reg.id;
+    this->id = reg.id;
 	direccion = reg.direccion;
 	eMail = reg.eMail;
 	nombre = reg.nombre;
@@ -52,7 +52,7 @@ Registro::~Registro() {
 Registro& Registro::operator =(const Registro& reg)
 {
   if (this != &reg) {
-	id = reg.id;
+    this->id = reg.id;
 	direccion = reg.direccion;
 	eMail = reg.eMail;
 	nombre = reg.nombre;
