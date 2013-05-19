@@ -183,7 +183,7 @@ void ModeloRegistro::Buscar(string filtro) //, int campo
   	for(t = lr.begin(); t != lr.end(); t++)
 	{
 	//switch(campo){
-	      	if((*t)->getNombre() == filtro)
+        if((*t)->getNombre() == filtro)
 		{
 			(*t)->setBuscado(true);
 		}
@@ -243,11 +243,11 @@ bool ModeloRegistro::Modificar(int id2, string n, string mail, string pob, strin
 	}
 
 	(*t)->setNombre(n);
-	(*t)->setDireccion(mail);
+    (*t)->setDireccion(dir);
 	(*t)->setPoblacion(pob);
 	(*t)->setPostal(cp);
 	(*t)->setTelefono(tel);
-	(*t)->setMail(dir);
+    (*t)->setMail(mail);
 
 	return true;
 }
@@ -285,7 +285,7 @@ std::vector<std::string> ModeloRegistro::GetRegistro(int id)
     std::vector<std::string> ar;
   for(t = lr.begin(); t != lr.end(); t++){
 	if((*t)->getId()==id)
-	{
+    {
         ar.push_back((*t)->getNombre());
         ar.push_back((*t)->getDireccion());
         ar.push_back((*t)->getPoblacion());
@@ -296,6 +296,19 @@ std::vector<std::string> ModeloRegistro::GetRegistro(int id)
 	}
   }
   ar.push_back("-1");
+  return ar;
+}
+
+std::vector<Registro*> ModeloRegistro::GetRegistrosBuscados(){
+    list<Registro*>::iterator t;
+    std::vector<Registro*> ar;
+  for(t = lr.begin(); t != lr.end(); t++){
+    if((*t)->getBuscado())
+    {
+        Registro* reg = new Registro((*t)->getId(), (*t)->getNombre(), (*t)->getMail(), (*t)->getPoblacion(), (*t)->getPostal(), (*t)->getTelefono(), (*t)->getDireccion());
+        ar.push_back(reg);
+    }
+  }
   return ar;
 }
 

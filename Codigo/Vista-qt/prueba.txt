@@ -1,9 +1,9 @@
-NOMBRE: Juansdfsdf
-DIRECCION: serwerasdfsdf
-POBLACION: eldasdfsd
-CPOSTAL: lsajdflsjsdfdf
-TELEFONO: w23343234234
-EMAIL: culozxcvz
+NOMBRE: Pablo
+DIRECCION: Erneto 1
+POBLACION: Elda
+CPOSTAL: 03180
+TELEFONO: 96 500 12 34
+EMAIL: pablo@gmail.com
 
 NOMBRE: Juan
 DIRECCION: serwer

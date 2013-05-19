@@ -17,8 +17,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
-     <width>571</width>
+     <y>0</y>
+     <width>1151</width>
      <height>591</height>
     </rect>
    </property>
@@ -159,7 +159,7 @@
      <rect>
       <x>90</x>
       <y>360</y>
-      <width>269</width>
+      <width>373</width>
       <height>39</height>
      </rect>
     </property>
@@ -178,6 +178,16 @@
        </property>
        <property name="text">
         <string>Guardar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="BtModificar">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Modificar</string>
        </property>
       </widget>
      </item>
@@ -229,11 +239,61 @@
      <string>Acerca de</string>
     </property>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>60</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>¿Que busco?</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="IBuscar"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="BtBuscar">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>130</y>
+      <width>98</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>¡Busca!</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>130</y>
+      <width>161</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Mostrar resultados</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
-  <zorder>centralwidget</zorder>
-  <zorder>verticalLayoutWidget_3</zorder>
-  <zorder>verticalLayoutWidget_3</zorder>
-  <zorder>horizontalLayoutWidget_2</zorder>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
