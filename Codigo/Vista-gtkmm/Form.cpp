@@ -2,7 +2,7 @@
 
 using namespace Gtk;
 
-FrmMain::FrmMain(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) :
+Form::Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) :
     Gtk::Window(cobject), builder(refGlade){
 
     builder->get_widget("BtNuevoRegistro", BtNuevoRegistro);
@@ -24,13 +24,13 @@ FrmMain::FrmMain(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refG
 
     BtNuevoRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtNuevoRegistro_clicked));
     BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
-    BtGuardarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarRegistro_clicked));
+    BtModificar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtModificar_clicked));
+    BtBorrarRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtBorrarRegistro_clicked));
+    BtPrevRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtPrevRegistro_clicked));
+    BtNextRegistro->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtNextRegistro_clicked));
+    BtGuardarFichero->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarFichero_clicked));
+    ChMostrar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_ChMostrar_clicked));
+    BtBuscar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtBuscar_clicked));
 
 }
 

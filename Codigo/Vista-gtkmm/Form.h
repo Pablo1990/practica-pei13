@@ -1,6 +1,6 @@
 #include <gtkmm.h>
 
-class Frm : public Gtk::Window{
+class Form : public Gtk::Window{
 protected:
     Glib::RefPtr<Gtk::Builder> builder;
     Gtk::Button *BtNuevoRegistro;
@@ -22,7 +22,7 @@ protected:
     
 
 public:
-    Frm(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade);//constructor
+    Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade);//constructor
 
 protected:
     //signal handlers

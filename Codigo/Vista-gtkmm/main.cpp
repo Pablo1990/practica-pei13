@@ -1,16 +1,18 @@
-#include <gtk/gtk.h>
-#include <glade/glade.h>
+#include <iostream>
+#include <gtkmm.h>
+#include "Form.h"
 
-int main(int argc, char *argv[]) {
-	GladeXML *xml;
-	gtk_init(&argc, &argv);
-	glade_init();
-	/* load the interface */
-	xml = glade_xml_new("GtkForm.glade", NULL, NULL);
-	/* connect the signals in the interface */
-	glade_xml_signal_autoconnect(xml);
-	/* start the event loop */
-	gtk_main();
+using namespace std;
+using namespace Gtk;
+
+int main(int argc, char **argv) {
+
+	Main kit(argc,argv);
+	Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("GtkForm.glade");
+
+	Form *frm = 0;
+	builder->get_widget_derived("form", frm);
+	kit.run(*frm);
+
 	return 0;
 }
-
