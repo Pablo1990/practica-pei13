@@ -58,7 +58,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry1">
+                  <object class="GtkEntry" id="EnNombre">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -99,7 +99,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry2">
+                  <object class="GtkEntry" id="EnDireccion">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -141,7 +141,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry3">
+                  <object class="GtkEntry" id="EnPoblacion">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -183,7 +183,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry4">
+                  <object class="GtkEntry" id="EnCPostal">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -225,7 +225,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry5">
+                  <object class="GtkEntry" id="EnTelefono">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -267,7 +267,7 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="entry6">
+                  <object class="GtkEntry" id="EnMail">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -316,6 +316,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtNuevoRegistro_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -332,6 +333,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtGuardarRegistro_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -348,6 +350,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtModificar_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">2</property>
@@ -364,6 +367,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtBorrarRegistro_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -395,6 +399,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtPrevRegistro_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -457,6 +462,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtGuardarFichero_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -558,7 +564,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="entry7">
+                  <object class="GtkEntry" id="EnBusqueda">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
@@ -593,6 +599,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_BtBuscar_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
