@@ -1,22 +1,3 @@
-/*#include <iostream>
-#include <gtkmm.h>
-#include "Form.h"
-
-using namespace std;
-using namespace Gtk;
-
-int main(int argc, char **argv) {
-
-	Main kit(argc,argv);
-	Glib::RefPtr<Gtk::Builder> builder = Gtk::Builder::create_from_file("GtkForm.glade");
-
-	Form *frm = 0;
-	builder->get_widget_derived("form", frm);
-	kit.run(*frm);
-
-	return 0;
-}*/
-
 #include "Form.h"
 #include <iostream>
 
@@ -24,7 +5,7 @@ int main(int argc, char **argv) {
 
 int main (int argc, char **argv)
 {
-  Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "pei.gestorDatos");
+  Glib::RefPtr<Gtk::Application> app = Gtk::Application::create(argc, argv, "Practica.PEI");
 
   //Load the Glade file and instiate its widgets:
   Glib::RefPtr<Gtk::Builder> refBuilder = Gtk::Builder::create();
@@ -50,11 +31,9 @@ int main (int argc, char **argv)
 
   //Get the GtkBuilder-instantiated dialog::
   Form* frm = 0;
-  //Cuando busque el widget comprobara que el tipo del puntero pDialog es un DerivedDialog derivado de Dialog
-  refBuilder->get_widget_derived("form", frm);
+  refBuilder->get_widget_derived("Form", frm);
   if(frm)
   {
-    //Start:
     app->run(*frm);
   }
 
