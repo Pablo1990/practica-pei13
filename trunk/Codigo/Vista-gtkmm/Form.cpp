@@ -7,7 +7,7 @@ Form::Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) 
 
     builder->get_widget("BtNuevoRegistro", BtNuevoRegistro);
     builder->get_widget("BtGuardarRegistro", BtGuardarRegistro);
-    builder->get_widget("BtModifcar", BtModifcar);
+    builder->get_widget("BtModifcar", BtModificar);
     builder->get_widget("BtBorrarRegistro", BtBorrarRegistro);
     builder->get_widget("BtPrevRegistro", BtPrevRegistro);
     builder->get_widget("BtNextRegistro", BtNextRegistro);
