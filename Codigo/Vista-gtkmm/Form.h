@@ -5,7 +5,7 @@ protected:
     Glib::RefPtr<Gtk::Builder> builder;
     Gtk::Button *BtNuevoRegistro;
     Gtk::Button *BtGuardarRegistro;
-    Gtk::Button *BtModifcar;
+    Gtk::Button *BtModificar;
     Gtk::Button *BtBorrarRegistro;
     Gtk::Button *BtPrevRegistro;
     Gtk::Button *BtNextRegistro;
