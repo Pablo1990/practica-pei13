@@ -32,10 +32,23 @@ Form::Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) 
     ChMostrar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_ChMostrar_clicked));
     BtBuscar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtBuscar_clicked));
 
+
 }
 
 void Form::on_BtNuevoRegistro_clicked(){
 
+	//String str;
+    	//str.append(QString("%1").arg(mr.GetNumRegistros()));
+    	//LbId->set_text(str);
+	EnNombre.set_text("");
+	EnDireccion.set_text("");
+	EnPoblacion.set_text("");
+	EnCPostal.set_text(""):
+	EnTelefono.set_text("");
+	EnMail.set_text("");
+	BtGuardarRegistro->set_device_enabled(true);
+    	modificar=false;
+   	BtModificar->set_device_enabled(false);
 }
 
 void Form::on_BtGuardarRegistro_clicked(){
@@ -43,6 +56,16 @@ void Form::on_BtGuardarRegistro_clicked(){
 }
 
 void Form::on_BtModificar_clicked(){
+	
+	//String str;
+    	//str.append(QString("%1").arg(mr.GetNumRegistros()));
+    	//LbId->set_text(str);
+	EnNombre.set_text("");
+	EnDireccion.set_text("");
+	EnPoblacion.set_text("");
+	EnCPostal.set_text(""):
+	EnTelefono.set_text("");
+	EnMail.set_text("");
 
 }
 
