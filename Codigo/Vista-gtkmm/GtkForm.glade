@@ -4,23 +4,26 @@
   <object class="GtkAboutDialog" id="Acerca de">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
-    <property name="type">popup</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Practica Pei</property>
     <property name="version">Pablo Vicente Munuera y Ernesto Rico Juan</property>
     <property name="authors"></property>
-    <property name="license_type">bsd</property>
+    <property name="license_type">lgpl-3-0</property>
+    <signal name="destroy" handler="gtk_widget_destroy" swapped="no"/>
+    <signal name="close" handler="gtk_widget_hide" swapped="no"/>
     <child internal-child="vbox">
-      <object class="GtkBox" id="aboutdialog-vbox1">
+      <object class="GtkBox" id="aboutDialog">
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
+        <signal name="remove" handler="gtk_widget_hide" swapped="no"/>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="aboutdialog-action_area1">
+          <object class="GtkButtonBox" id="BtClose">
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
+            <signal name="remove" handler="gtk_widget_hide" swapped="no"/>
           </object>
           <packing>
             <property name="expand">False</property>
