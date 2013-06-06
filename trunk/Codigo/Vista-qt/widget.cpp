@@ -107,7 +107,7 @@ void Widget::on_BtCargaFichero_clicked()
         ui->ITelefono->setPlainText(QString::fromUtf8( ar[4].c_str() ));
         ui->IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
         ui->LbId->setText("0");
-        ui->BtGuardarRegistro->setEnabled(true);
+        ui->BtGuardarRegistro->setEnabled(false);
         ui->BtModificar->setEnabled(true);
     }
 }

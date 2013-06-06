@@ -1,4 +1,6 @@
 #include <gtkmm.h>
+#include "../Modelo/modeloRegistro.h"
+
 
 class Form : public Gtk::Window{
 protected:
@@ -21,10 +23,19 @@ protected:
     Gtk::Entry *EnTelefono;
     Gtk::Entry *EnMail;
     Gtk::Entry *EnBusqueda;
+    Gtk::Label *LbId;
+    Gtk::AboutDialog *DiAcercaDe;
+    //Variables propias
+    ModeloRegistro mr;
+    bool modificar;
+    bool modoBuscar;
+    std::vector<Registro*> buscados;
+    int contadorBuscados;
     
 
 public:
     Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade);//constructor
+    Glib::ustring IntToUString(int iVal);
 
 protected:
     //signal handlers
