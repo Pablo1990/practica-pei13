@@ -175,7 +175,6 @@ void ModeloRegistro::ActualizarIds(){
 
 void ModeloRegistro::Buscar(string filtro) //, int campo
 {
-	
   	list<Registro*>::iterator t;
 	bool find = false;
 	//if(campo==1)
@@ -183,7 +182,7 @@ void ModeloRegistro::Buscar(string filtro) //, int campo
   	for(t = lr.begin(); t != lr.end(); t++)
 	{
 	//switch(campo){
-        if((*t)->getNombre() == filtro)
+		if((*t)->getNombre() == filtro)
 		{
 			(*t)->setBuscado(true);
 		}
@@ -207,6 +206,10 @@ void ModeloRegistro::Buscar(string filtro) //, int campo
 		else if((*t)->getMail() == filtro) 
 		{
 			(*t)->setBuscado(true);
+		}
+		else
+		{
+			(*t)->setBuscado(false);
 		}
   	}
 
