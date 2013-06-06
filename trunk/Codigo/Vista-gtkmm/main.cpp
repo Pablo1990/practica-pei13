@@ -1,7 +1,7 @@
 #include "Form.h"
 #include <iostream>
 
-
+using namespace Gtk;
 
 int main (int argc, char **argv)
 {
@@ -30,8 +30,8 @@ int main (int argc, char **argv)
   }
 
   //Get the GtkBuilder-instantiated dialog::
-  Form* frm = 0;
-  refBuilder->get_widget_derived("Form", frm);
+  Form *frm = 0;
+  refBuilder->get_widget_derived("window1", frm);
   if(frm)
   {
     app->run(*frm);

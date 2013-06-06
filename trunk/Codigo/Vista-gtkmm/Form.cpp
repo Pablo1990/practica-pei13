@@ -7,11 +7,13 @@ Form::Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) 
 
     builder->get_widget("BtNuevoRegistro", BtNuevoRegistro);
     builder->get_widget("BtGuardarRegistro", BtGuardarRegistro);
-    builder->get_widget("BtModifcar", BtModificar);
+    builder->get_widget("BtModificar", BtModificar);
     builder->get_widget("BtBorrarRegistro", BtBorrarRegistro);
     builder->get_widget("BtPrevRegistro", BtPrevRegistro);
     builder->get_widget("BtNextRegistro", BtNextRegistro);
     builder->get_widget("BtGuardarFichero", BtGuardarFichero);
+    builder->get_widget("BtCargarFichero", BtCargarFichero);
+    builder->get_widget("BtAcercaDe", BtAcercaDe);
     builder->get_widget("BtBuscar", BtBuscar);
     builder->get_widget("ChMostrar", ChMostrar);
     builder->get_widget("EnNombre", EnNombre);
@@ -31,8 +33,8 @@ Form::Form(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refGlade) 
     BtGuardarFichero->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtGuardarFichero_clicked));
     ChMostrar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_ChMostrar_clicked));
     BtBuscar->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtBuscar_clicked));
-
-
+    BtAcercaDe->signal_clicked().connect(sigc::mem_fun(*this, &Form::on_BtAcercaDe_clicked));
+    BtCargarFichero->signal_file_set().connect(sigc::mem_fun(*this, &Form::on_BtCargarFichero_file_set));
 }
 
 void Form::on_BtNuevoRegistro_clicked(){
@@ -40,15 +42,14 @@ void Form::on_BtNuevoRegistro_clicked(){
 	//String str;
     	//str.append(QString("%1").arg(mr.GetNumRegistros()));
     	//LbId->set_text(str);
-	EnNombre.set_text("");
-	EnDireccion.set_text("");
-	EnPoblacion.set_text("");
-	EnCPostal.set_text(""):
-	EnTelefono.set_text("");
-	EnMail.set_text("");
-	BtGuardarRegistro->set_device_enabled(true);
-    	modificar=false;
-   	BtModificar->set_device_enabled(false);
+	EnNombre->set_text("");
+	EnDireccion->set_text("");
+	EnPoblacion->set_text("");
+	EnCPostal->set_text("");
+	EnTelefono->set_text("");
+	EnMail->set_text("");
+	BtGuardarRegistro->set_sensitive(true);
+   	BtModificar->set_sensitive(false);
 }
 
 void Form::on_BtGuardarRegistro_clicked(){
@@ -60,12 +61,12 @@ void Form::on_BtModificar_clicked(){
 	//String str;
     	//str.append(QString("%1").arg(mr.GetNumRegistros()));
     	//LbId->set_text(str);
-	EnNombre.set_text("");
-	EnDireccion.set_text("");
-	EnPoblacion.set_text("");
-	EnCPostal.set_text(""):
-	EnTelefono.set_text("");
-	EnMail.set_text("");
+	EnNombre->set_text("");
+	EnDireccion->set_text("");
+	EnPoblacion->set_text("");
+	EnCPostal->set_text("");
+	EnTelefono->set_text("");
+	EnMail->set_text("");
 
 }
 
@@ -82,6 +83,14 @@ void Form::on_BtNextRegistro_clicked(){
 }
 
 void Form::on_BtGuardarFichero_clicked(){
+
+}
+
+void Form::on_BtCargarFichero_file_set(){
+
+}
+
+void Form::on_BtAcercaDe_clicked(){
 
 }
 

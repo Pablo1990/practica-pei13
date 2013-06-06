@@ -10,7 +10,9 @@ protected:
     Gtk::Button *BtPrevRegistro;
     Gtk::Button *BtNextRegistro;
     Gtk::Button *BtGuardarFichero;
+    Gtk::FileChooserButton *BtCargarFichero;
     Gtk::Button *BtBuscar;
+    Gtk::Button *BtAcercaDe;
     Gtk::CheckButton *ChMostrar;
     Gtk::Entry *EnNombre;
     Gtk::Entry *EnDireccion;
@@ -35,4 +37,6 @@ protected:
     void on_BtGuardarFichero_clicked();
     void on_ChMostrar_clicked();
     void on_BtBuscar_clicked();
+    void on_BtAcercaDe_clicked();
+    void on_BtCargarFichero_file_set();
 };
