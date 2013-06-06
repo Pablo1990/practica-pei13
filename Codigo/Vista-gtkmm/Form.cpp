@@ -51,31 +51,61 @@ void Form::on_BtNuevoRegistro_clicked(){
 	BtGuardarFichero->set_sensitive(true);
    	BtModificar->set_sensitive(false);
     modificar=false;
-    LbId->set_text(IntToUString(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str())+1));
+    LbId->set_text(IntToUString(mr.GetNumRegistros()));
 }
 
 void Form::on_BtGuardarRegistro_clicked(){
+    if(!modificar){
+        mr.CrearRegistro(Glib::locale_from_utf8(EnNombre->get_text()), Glib::locale_from_utf8(EnMail->get_text()), Glib::locale_from_utf8(EnPoblacion->get_text()), Glib::locale_from_utf8(EnCPostal->get_text()), Glib::locale_from_utf8(EnTelefono->get_text()), Glib::locale_from_utf8(EnDireccion->get_text()));
+    }
+    else{
+        mr.Modificar(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str()), Glib::locale_from_utf8(EnNombre->get_text()), Glib::locale_from_utf8(EnMail->get_text()), Glib::locale_from_utf8(EnPoblacion->get_text()), Glib::locale_from_utf8(EnCPostal->get_text()), Glib::locale_from_utf8(EnTelefono->get_text()), Glib::locale_from_utf8(EnDireccion->get_text()));
+    }
 
+    BtGuardarRegistro->set_sensitive(false);
+    modificar = true;
+    BtModificar->set_sensitive(true);
 }
 
 void Form::on_BtModificar_clicked(){
-	
-	//String str;
-    	//str.append(QString("%1").arg(mr.GetNumRegistros()));
-    	//LbId->set_text(str);
-	EnNombre->set_text("");
-	EnDireccion->set_text("");
-	EnPoblacion->set_text("");
-	EnCPostal->set_text("");
-	EnTelefono->set_text("");
-	EnMail->set_text("");
     modificar=true;
-    BtGuardarFichero->set_sensitive(true);
+    BtGuardarRegistro->set_sensitive(true);
     BtModificar->set_sensitive(false);
 }
 
 void Form::on_BtBorrarRegistro_clicked(){
+    if(mr.GetNumRegistros()>=1)
+    {
+        mr.Borrar(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str()));
+        std::vector<std::string> ar;
+        ar=mr.GetRegistro(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str()));
 
+        if(ar[0]=="-1" && mr.GetNumRegistros()!=0)
+        {
+            ar = mr.GetRegistro(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str())-1);
+            LbId->set_text(IntToUString(atoi(Glib::locale_from_utf8(LbId->get_text()).c_str())-1));
+
+            if(mr.GetNumRegistros()!=0)
+            {
+                EnNombre->set_text(ar[0]);
+                EnDireccion->set_text(ar[1]);
+                EnPoblacion->set_text(ar[2]);
+                EnCPostal->set_text(ar[3]);
+                EnTelefono->set_text(ar[4]);
+                EnMail->set_text(ar[5]);
+            }
+            else
+            {
+                LbId->set_text("0");
+                EnNombre->set_text("");
+                EnDireccion->set_text("");
+                EnPoblacion->set_text("");
+                EnCPostal->set_text("");
+                EnTelefono->set_text("");
+                EnMail->set_text("");
+            }
+        }
+    }
 }
 
 void Form::on_BtPrevRegistro_clicked(){
@@ -111,7 +141,7 @@ void Form::on_BtNextRegistro_clicked(){
 }
 
 void Form::on_BtGuardarFichero_clicked(){
-
+    mr.EscribirFichero((char*)Glib::locale_from_utf8(BtCargarFichero->get_filename()).c_str()));
 }
 
 void Form::on_BtCargarFichero_file_set(){
