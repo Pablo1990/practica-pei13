@@ -51,8 +51,12 @@ void Widget::on_BtNextRegistro_clicked()
             str.append(QString("%1").arg((contadorBuscados+1)));
             ui->LbId->setText(str);
             contadorBuscados++;
+            ui->BtModificar->setEnabled(true);
+            ui->BtGuardarRegistro->setEnabled(false);
         }
     }
+
+    
 }
 
 void Widget::on_BtPrevRegistro_clicked()
@@ -74,6 +78,7 @@ void Widget::on_BtPrevRegistro_clicked()
             ui->BtGuardarRegistro->setEnabled(false);
             ui->BtModificar->setEnabled(true);
         }
+        ui->BtBorrarRegistro->setEnabled(true);
     }
     else
     {
@@ -89,6 +94,8 @@ void Widget::on_BtPrevRegistro_clicked()
             str.append(QString("%1").arg((contadorBuscados-1)));
             ui->LbId->setText(str);
             contadorBuscados--;
+            ui->BtModificar->setEnabled(true);
+            ui->BtGuardarRegistro->setEnabled(false);
         }
     }
 }
@@ -126,6 +133,7 @@ void Widget::on_BtNuevoRegistro_clicked()
     ui->BtGuardarRegistro->setEnabled(true);
     modificar=false;
     ui->BtModificar->setEnabled(false);
+    ui->BtBorrarRegistro->setEnabled(false);
 }
 
 void Widget::on_BtGuardarRegistro_clicked()
@@ -134,7 +142,6 @@ void Widget::on_BtGuardarRegistro_clicked()
     {
         mr.CrearRegistro(ui->INombre->toPlainText().toStdString(), ui->IMail->toPlainText().toStdString(), ui->IPoblacion->toPlainText().toStdString(), ui->ICPostal->toPlainText().toStdString(), ui->ITelefono->toPlainText().toStdString(), ui->IDireccion->toPlainText().toStdString());
         ui->BtGuardarRegistro->setEnabled(false);
-        modificar=true;
         ui->BtModificar->setEnabled(true);
     }
     else
@@ -273,12 +280,24 @@ void Widget::on_BtBuscar_clicked()
         ui->LbId->setText(str);
         modoBuscar=true;
         ui->checkBox->setChecked(true);
+        ui->BtNuevoRegistro->setEnabled(false);
     }
     else
     {
         QMessageBox msgBox;
         msgBox.setText("No se han encontrado resultados");
         msgBox.exec();
+        ui->BtNuevoRegistro->setEnabled(false);
+        ui->checkBox->setChecked(false);
+        modoBuscar=false;
+        std::vector<std::string> ar=mr.GetRegistro(0);
+        ui->INombre->setPlainText(QString::fromUtf8( ar[0].c_str() ));
+        ui->IDireccion->setPlainText(QString::fromUtf8( ar[1].c_str() ));
+        ui->IPoblacion->setPlainText(QString::fromUtf8( ar[2].c_str() ));
+        ui->ICPostal->setPlainText(QString::fromUtf8( ar[3].c_str() ));
+        ui->ITelefono->setPlainText(QString::fromUtf8( ar[4].c_str() ));
+        ui->IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
+        ui->LbId->setText("0");
     }
 }
 
@@ -293,7 +312,21 @@ void Widget::on_checkBox_clicked()
             QMessageBox msgBox;
             msgBox.setText("No se han encontrado resultados");
             msgBox.exec();
-            ui->BtNuevoRegistro->setEnabled(false);
+            ui->checkBox->setChecked(false);
+            contadorBuscados=0;
+            modoBuscar=false;
+            std::vector<std::string> ar=mr.GetRegistro(0);
+            ui->INombre->setPlainText(QString::fromUtf8( ar[0].c_str() ));
+            ui->IDireccion->setPlainText(QString::fromUtf8( ar[1].c_str() ));
+            ui->IPoblacion->setPlainText(QString::fromUtf8( ar[2].c_str() ));
+            ui->ICPostal->setPlainText(QString::fromUtf8( ar[3].c_str() ));
+            ui->ITelefono->setPlainText(QString::fromUtf8( ar[4].c_str() ));
+            ui->IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
+            ui->LbId->setText("0");
+            ui->BtModificar->setEnabled(true);
+            ui->BtNuevoRegistro->setEnabled(true);
+            ui->BtBorrarRegistro->setEnabled(true);
+            ui->BtGuardarRegistro->setEnabled(false);
         }
         else
         {
@@ -325,6 +358,8 @@ void Widget::on_checkBox_clicked()
         ui->IMail->setPlainText(QString::fromUtf8( ar[5].c_str() ));
         ui->LbId->setText("0");
         ui->BtModificar->setEnabled(true);
-        ui->BtNuevoRegistro->setEnabled(false);
+        ui->BtNuevoRegistro->setEnabled(true);
+        ui->BtBorrarRegistro->setEnabled(true);
+        ui->BtGuardarRegistro->setEnabled(false);
     }
 }
