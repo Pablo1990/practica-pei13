@@ -1,23 +1,19 @@
 COMP=g++
 OPC=-g -Wall
 CARMOD=./Codigo/Modelo
+CARQT=./Codigo/Vista-qt
+CARGTK=./Codigo/Vista-gtkmm
 
 .PHONY=clean
 
-all: pei
- 
-pei: main.cpp modeloRegistro.o modelo.o Registro.o 
-	$(COMP) $(OPC) main.cpp modeloRegistro.o modelo.o Registro.o -o pei
-
-modeloRegistro.o: $(CARMOD)/modeloRegistro.cpp $(CARMOD)/modeloRegistro.h $(CARMOD)/Registro.h $(CARMOD)/modelo.h
-	$(COMP) $(OPC) -c $(CARMOD)/modeloRegistro.cpp -I $(CARMOD)
-
-modelo.o: $(CARMOD)/modelo.cpp $(CARMOD)/modelo.h
-	$(COMP) $(OPC) -c $(CARMOD)/modelo.cpp -I $(CARMOD)/
-
-Registro.o: $(CARMOD)/Registro.cpp $(CARMOD)/Registro.h
-	$(COMP) $(OPC) -c $(CARMOD)/Registro.cpp -I $(CARMOD)/
+all:
+	$(info --------- COMPILADO: TERMINAL, QT Y GTKMM ---------)
+	cd $(CARMOD); make;
+	cd $(CARQT); qmake; make;
+	cd $(CARGTK); make;
 
 clean:
-	rm main 
-	rm -r *.o
+	$(info --------- LIMPIANDO: TERMINAL, QT Y GTKMM ---------)
+	cd $(CARMOD); make clean;
+	cd $(CARQT); make clean;
+	cd $(CARGTK); make clean;
