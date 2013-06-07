@@ -37,7 +37,7 @@ public:
   ModeloRegistro & operator =(const ModeloRegistro &un_modeloRegistro);
 
   void procesarRegistro(string[]);
-void CrearRegistro(string , string , string , string, string , string );
+  void CrearRegistro(string , string , string , string, string , string );
   bool EscribirFichero(const char * );
   bool LeerFichero(char*);
   bool Modificar(int, string, string, string, string, string, string);
