@@ -21,4 +21,5 @@ Registro.o: $(CARMOD)/Registro.cpp $(CARMOD)/Registro.h
 	$(COMP) $(OPC) -c $(CARMOD)/Registro.cpp -I $(CARMOD)/
 	
 clean:
-	rm *.o
+	rm main
+	rm -r *.o

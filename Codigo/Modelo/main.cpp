@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#include "./Codigo/Modelo/modeloRegistro.h"
+#include "modeloRegistro.h"
 
 int main(int argc, char *argv[])
 {
