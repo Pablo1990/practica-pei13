@@ -1,0 +1,28 @@
+QT
+Se han creado 2 clases con sus correspondientes .h y cpp:
+	- Widget: Es la ventana principal. A la estructura básica que debe tener una ventana principal (inicialización, destrucción, ...), añadimos las señales oportunas con los métodos correspondientes. Estos, posteriormente, utilizarán el modelo para recoletar datos y usar sus funciones.
+	Por ello, tiene como atributos:
+		- ModeloRegistro mr: asociamos el módelo al widget.
+		- QString fileName: nos guardamos el nombre del fichero, para saber si se ha modificado.
+		- bool modificar: booleano para saber si estamos en el estado 'modificando'.
+		- bool modoBuscar: ¿Estamos visualizando los resultados de la búsqueda?
+		- std::vector<Registro*> buscados: almacenamos los registros encontrados en la búsqueda.
+		- int contadorBuscados: el contador por dónde vamos de la lista de buscados.
+	Y como funciones:
+		- Tenemos los eventos (click) de los botones:
+			- BtNextRegistro, BtPrevRegistro: busca el siguiente o anterior registro de la lista
+			- BtCargaFichero, BtGuardarFichero, BtBorrarRegistro: realizan lo que su nombre indican.
+			- BtNuevoRegistro, BtModificar, habilitando el modo modificar o nuevoRegistro, pero hasta que no se pulse "guardar" no se confirma, pulsando otro botón se descarta.
+			- commandLinkButton: abre el diálogo acercade.
+			- BtBuscar: Busca una palabra en los registros y muestros los registros en los que se ha encontrado.
+			- checkBox: habilita o deshabilita la visualización de los registros encontrados.
+		
+	- Acercade: Diálogo "Acerca de".No tiene ningún método, ni funcionalidad, es un diálogo estático, por ello, tiene la estructura básica de Qt necesaria para ello, (constructor, destructor y un atributo).
+
+Y un fuente, main.cpp, desde el cual se ejecuta el programa y se esperan los eventos propios de Qt.
+
+La división en dos clases es debida a que hay que crear una clase para cada ventana, tenemos dos ventanas (la principal y el dialogo de "Acerca de"), con lo que tenemos dos clases.
+
+La división en .cpp y .h es una standard en programación, de ahí su utilización.
+
+FQT

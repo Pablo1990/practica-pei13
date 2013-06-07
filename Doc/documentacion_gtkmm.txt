@@ -1,0 +1,26 @@
+GTKMM
+
+Para Gtkmm únicamente nos ha sido necesaria la creación de una clase, la correspondiente a la ventana principal de gtkmm, que ejecutará los eventos asociados a los botones creados.
+En esta existen dos tipos de métodos, señales, constructor y auxiliar:
+	- Constructor: Cogemos, del archivo .glade creado con glade, los elementos de éste y asignamos las señales a las funciones correspondientes.
+	- Auxiliar: Se ha realizado una función para convertir de Int a UString. (IntToUString)
+	- Señales click de los botones:
+		- BtNextRegistro, BtPrevRegistro: busca el siguiente o anterior registro de la lista
+		- BtGuardarFichero, BtBorrarRegistro: realizan lo que su nombre indican.
+		- BtNuevoRegistro, BtModificar, habilitando el modo modificar o nuevoRegistro, pero hasta que no se pulse "guardar" no se confirma, pulsando otro botón se descarta.
+		- BtBuscar: Busca una palabra en los registros y muestros los registros en los que se ha encontrado.
+		- ChMostrar: habilita o deshabilita la visualización de los registros encontrados.
+		- BtAcercaDe: Muestra el pop-up de "acerca de".
+	- La señal file_set del botón BtCargaFichero que nos dice si el fichero seleccionado ha sido cambiado. Si es así se vuelve a cargar los registros, es decir, se concatenan.
+		
+Por otro lado, está los atributos, que son los mismos que compone a la ventana de Qt más los elementos de la ventana que hemos extraido del builder de Gtkmm:
+	- ModeloRegistro mr: asociamos el módelo al widget.
+	- bool modificar: booleano para saber si estamos en el estado 'modificando'.
+	- bool modoBuscar: ¿Estamos visualizando los resultados de la búsqueda?
+	- std::vector<Registro*> buscados: almacenamos los registros encontrados en la búsqueda.
+	- int contadorBuscados: el contador por dónde vamos de la lista de buscados.
+	- Más todos los elementos (button's, filechooserbutton, entry, AboutDialog).
+
+La división en .cpp y .h es una standard en programación, de ahí su utilización.
+
+FGTKMM
