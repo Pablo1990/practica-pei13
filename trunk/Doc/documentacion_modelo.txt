@@ -1,0 +1,51 @@
+Se ha creado dos clases, una representando un registro y otra al conjunto de registro, el cual denominaremos modelo.
+ - La clase registro tiene como atributos:
+ 	- id
+ 	- nombre
+ 	- poblacion
+ 	- cPostal
+ 	- telefono
+ 	- eMail
+ 	- buscado
+ 	
+  Y como método tiene:
+  	- Registro(int);
+	- Registro(int, string, string , string, string, string, string);
+	- Registro(const Registro&);
+	- ~Registro();
+	- Registro& operator=(const Registro&);
+    	- string getDireccion() const;
+    	- string getMail() const;
+    	- string getNombre() const;
+    	- string getPoblacion() const;
+    	- string getPostal() const;
+    	- string getTelefono() const;
+	- bool getBuscado() const;
+    	- void setDireccion(string direccion);
+    	- void setMail(string eMail);
+    	- void setNombre(string nombre);
+    	- void setPoblacion(string poblacion);
+    	- void setPostal(string cPostal);
+    	- void setTelefono(string telefono);
+	- void setBuscado(bool buscado);
+	- void setId(int);
+	- int getId();
+	
+ - Por otro lado, la clase modeloRegistro tiene dos únicos atributos
+ 	- list<Registro*> lr;
+ 	- list<Registro*> busqueda;
+ Y cómo métodos posee:
+ 	- Constructor, Constructor por defecto, destructor y asignación típicos.
+ 	- void procesarRegistro(string[]);
+	- void CrearRegistro(string , string , string , string, string , string );
+	- bool EscribirFichero(const char * );
+	- bool LeerFichero(char*);
+	- bool Modificar(int, string, string, string, string, string, string);
+	- void Imprimir(int);
+	- void ImprimirRegistro(Registro*);
+	- void Buscar(const string);
+	- bool Borrar(int);
+	- void ActualizarIds();
+	- std::vector<string> GetRegistro(int);
+	- int GetNumRegistros();
+	- std::vector<Registro*> GetRegistrosBuscados();
