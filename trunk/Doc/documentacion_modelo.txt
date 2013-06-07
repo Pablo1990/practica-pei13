@@ -1,51 +1,55 @@
+MODELO
+
 Se ha creado dos clases, una representando un registro y otra al conjunto de registro, el cual denominaremos modelo.
  - La clase registro tiene como atributos:
- 	- id
- 	- nombre
- 	- poblacion
- 	- cPostal
- 	- telefono
- 	- eMail
- 	- buscado
+ 	- id (int): sirve para identificar al registro al buscar/modificar/borrar
+ 	- nombre, poblacion, cPostal, telefono, eMail: (string) datos de la persona representada
+ 	- buscado: sirve para detectar si ese registro forma parte de los encontrado al realizar la busqueda.
  	
   Y como método tiene:
-  	- Registro(int);
-	- Registro(int, string, string , string, string, string, string);
-	- Registro(const Registro&);
-	- ~Registro();
-	- Registro& operator=(const Registro&);
-    	- string getDireccion() const;
-    	- string getMail() const;
-    	- string getNombre() const;
-    	- string getPoblacion() const;
-    	- string getPostal() const;
-    	- string getTelefono() const;
-	- bool getBuscado() const;
-    	- void setDireccion(string direccion);
-    	- void setMail(string eMail);
-    	- void setNombre(string nombre);
-    	- void setPoblacion(string poblacion);
-    	- void setPostal(string cPostal);
-    	- void setTelefono(string telefono);
-	- void setBuscado(bool buscado);
-	- void setId(int);
-	- int getId();
+  	- Registro(int): constructor a partir de un id, todo lo demás quedará vacio.
+	- Registro(int, string, string , string, string, string, string): Constructor a partir de los datos.
+	- Registro(const Registro&): constructor de copia.
+	- ~Registro(): destructor.
+	- Registro& operator=(const Registro&): operador asignación.
+	- Getters:
+	    	- string getDireccion() const;
+	    	- string getMail() const;
+	    	- string getNombre() const;
+	    	- string getPoblacion() const;
+	    	- string getPostal() const;
+	    	- string getTelefono() const;
+		- bool getBuscado() const;
+		- int getId();
+	- Setters:
+	    	- void setDireccion(string direccion);
+	    	- void setMail(string eMail);
+	    	- void setNombre(string nombre);
+	    	- void setPoblacion(string poblacion);
+	    	- void setPostal(string cPostal);
+	    	- void setTelefono(string telefono);
+		- void setBuscado(bool buscado);
+		- void setId(int);
 	
  - Por otro lado, la clase modeloRegistro tiene dos únicos atributos
- 	- list<Registro*> lr;
- 	- list<Registro*> busqueda;
+ 	- list<Registro*> lr: lista de registros
+ 	- list<Registro*> busqueda: lista de registros encontrados al realizar la búsqueda.
  Y cómo métodos posee:
  	- Constructor, Constructor por defecto, destructor y asignación típicos.
- 	- void procesarRegistro(string[]);
-	- void CrearRegistro(string , string , string , string, string , string );
-	- bool EscribirFichero(const char * );
-	- bool LeerFichero(char*);
-	- bool Modificar(int, string, string, string, string, string, string);
-	- void Imprimir(int);
-	- void ImprimirRegistro(Registro*);
-	- void Buscar(const string);
-	- bool Borrar(int);
-	- void ActualizarIds();
-	- std::vector<string> GetRegistro(int);
-	- int GetNumRegistros();
-	- std::vector<Registro*> GetRegistrosBuscados();
+ 	- void procesarRegistro(string[]): Crea un registro a partir de una linea con un registro completo.
+	- void CrearRegistro(string , string , string , string, string , string ): Crea el registro y lo mete a la lista de registros.
+	- bool LeerFichero(char*): Lee el fichero a partir de un nombre de fichero y los inserta en la lista con ayuda de las dos funciones anteriores.
+	- bool EscribirFichero(const char * ): Escribe en un fichero todos los registros que tengamos en la lr, por parámetro llega el nombre del fichero.
+	- bool Modificar(int, string, string, string, string, string, string): Modifica un registro a partir de su id, y los cambia por los strings pasados por parámetro.
+	- void Imprimir(int): Imprime, por terminal, todos los registros de una de las dos listas existentes (lr o buscados), dependiendo del parámetro (0 lr, 1 buscados).
+	- void ImprimirRegistro(Registro*): Imprime por pantalla el registro pasado.
+	- void Buscar(const string): Busca según el filtro asociado, y pone a true el atributo buscado de ese registro.
+	- bool Borrar(int): borra el registro con el que coincide el id de la lista lr.
+	- void ActualizarIds(): Sirve para poner bien los ids, de los registros, i.e. para que se correspondan con su orden en la lista.
+	- std::vector<string> GetRegistro(int): Devuelve un vector std de strings para a partir de un identificador, que será recogido y utilizado por Qt y Gtkmm.
+	- int GetNumRegistros(): devuelve el tamaño de la lista de registros.
+	- std::vector<Registro*> GetRegistrosBuscados(): Devuelve los registros encontrados según el método buscar.
+	
+El criterio seguido para dividir los ficheros en dos ha sido la funcionalidad. Debía crearse una clase para un registro y otra para que coexistan métodos y la lista de registros.
+	
+FMODELO
