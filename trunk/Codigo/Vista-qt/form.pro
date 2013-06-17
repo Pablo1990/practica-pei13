@@ -12,14 +12,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
            ../Modelo/modeloRegistro.cpp \
-           ../Modelo/modelo.cpp \
            ../Modelo/Registro.cpp \
         widget.cpp \
     acercade.cpp
 
 HEADERS  += widget.h \
            ../Modelo/modeloRegistro.h \
-           ../Modelo/modelo.h \
            ../Modelo/Registro.h \
     acercade.h
 
