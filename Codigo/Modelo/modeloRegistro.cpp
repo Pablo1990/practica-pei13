@@ -119,7 +119,6 @@ bool ModeloRegistro::EscribirFichero(const char* nombreFichero)
 	}
 
 	fo.close();
-
 }
 
 bool ModeloRegistro::LeerFichero(char* nombreFichero)
